@@ -1,0 +1,27 @@
+{
+  "name": "@tsmx/object-hmac",
+  "version": "1.0.0",
+  "description": "Create and verify HMAC's for JSON objects",
+  "author": "tsmx <dev@tsmx.net>",
+  "main": "object-hmac.js",
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=6.0.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "test-coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsmx/object-hmac.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "JSON",
+    "HMAC",
+    "sign",
+    "verify",
+    "data-integrity"
+  ]
+}
