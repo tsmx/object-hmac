@@ -45,7 +45,7 @@ let verification = objectHmac.verifyHmac(obj, key);
 The verification would fail and return `false`, if...
 - The object to be verified doesn't provide a HMAC to check against
 - The object was manipulated: attributes were changed, added or deleted (deep-inspection including all nested objects/arrays)
-- Tha HMAC was manipulated
+- The HMAC was manipulated
 
 ### Only calculate HMAC for an object
 
@@ -60,12 +60,12 @@ let obj = {
     hobbies: ['sports', 'travelling']
 };
 
-let hmac = objectHmac.calculateHmac(obj, secret);
+let hmac = objectHmac.calculateHmac(obj, key);
 
 // 37c2e448b6f4a72c9d8abc9a1ab6cada602c3785148caeeed5498ed065ddc69f
 ```
 
-## API
+## API - *under construction*
 
 ### createHmac(obj, key, hmacAttribute = '__hmac')
 
