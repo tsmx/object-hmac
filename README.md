@@ -6,7 +6,7 @@
 [![Build Status](https://img.shields.io/github/workflow/status/tsmx/object-hmac/git-ci-build)](https://img.shields.io/github/workflow/status/tsmx/object-hmac/git-ci-build)
 [![Coverage Status](https://coveralls.io/repos/github/tsmx/object-hmac/badge.svg?branch=master)](https://coveralls.io/github/tsmx/object-hmac?branch=master)
 
-> Create and verify HMAC's for JSON objects.
+> Create and verify HMAC for a JSON object.
 
 Easily create and verify [HMAC's](https://en.wikipedia.org/wiki/HMAC) for your JSON objects to ensure data integrity and authenticity. 
 
@@ -18,28 +18,32 @@ Easily create and verify [HMAC's](https://en.wikipedia.org/wiki/HMAC) for your J
 const objectHmac = require('@tsmx/object-hmac');
 const key = 'HmacSecret-0815';
 
-let obj = {
+let person = {
     name: 'Max',
     age: 32,
     hobbies: ['sports', 'travelling']
 };
 
-objectHmac.createHmac(obj, key);
+objectHmac.createHmac(person, key);
 
-// obj = {"name":"Max","age":32,"hobbies":["sports","travelling"],"__hmac":"37c2e448b6f4a72c9d8abc9a1ab6cada602c3785148caeeed5498ed065ddc69f"}
+// person = {"name":"Max","age":32,"hobbies":["sports","travelling"],"__hmac":"37c2e448b6f4a72c9d8abc9a1ab6cada602c3785148caeeed5498ed065ddc69f"}
 ```
 
 ### Verify HMAC for a JSON object
 
 ```js
-// obj = {"name":"Max","age":32,"hobbies":["sports","travelling"],"__hmac":"37c2e448b6f4a72c9d8abc9a1ab6cada602c3785148caeeed5498ed065ddc69f"}
+// person = {"name":"Max","age":32,"hobbies":["sports","travelling"],"__hmac":"37c2e448b6f4a72c9d8abc9a1ab6cada602c3785148caeeed5498ed065ddc69f"}
 
 const objectHmac = require('@tsmx/object-hmac');
 const key = 'HmacSecret-0815';
 
-let verification = objectHmac.verifyHmac(obj, key);
-
+let verification = objectHmac.verifyHmac(person, key);
 // true
+
+person.age = 33;
+
+let verificationAfterChange = objectHmac.verifyHmac(person, key);
+// false
 ```
 
 ### Only calculate HMAC for a JSON object
@@ -49,14 +53,13 @@ const objectHmac = require('@tsmx/object-hmac');
 const key = 'HmacSecret-0815';
 
 
-let obj = {
+let person = {
     name: 'Max',
     age: 32,
     hobbies: ['sports', 'travelling']
 };
 
-let hmac = objectHmac.calculateHmac(obj, key);
-
+let hmac = objectHmac.calculateHmac(person, key);
 // 37c2e448b6f4a72c9d8abc9a1ab6cada602c3785148caeeed5498ed065ddc69f
 ```
 
