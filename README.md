@@ -42,7 +42,7 @@ let verification = objectHmac.verifyHmac(obj, key);
 // true
 ```
 
-### Only calculate HMAC for an object
+### Only calculate HMAC for a JSON object
 
 ```js
 const objectHmac = require('@tsmx/object-hmac');
