@@ -94,6 +94,7 @@ The verification would fail and return `false`, if...
 - `obj` doesn't provide a HMAC to check against
 - `obj` was manipulated: at least one attribute was changed, added or deleted (deep-inspection including all nested objects/arrays)
 - the HMAC of `obj` was manipulated
+- `key` is deviating from the one the HMAC was created with
 
 #### obj
 
@@ -105,7 +106,7 @@ The object of which the HMAC should be verified. The given HMAC to be verified i
 
 Type: `String`
 
-The key to calculate the objects HMAC and validate against the given one. Must be identical to the `key` that was used to create the original HMAC for the object.
+The key to calculate the objects HMAC and validate against the given one. Must be identical to the `key` that was used to create the original HMAC for the object for a successful verification.
 
 #### hmacAttribute
 

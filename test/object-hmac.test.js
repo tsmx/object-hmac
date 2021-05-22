@@ -2,6 +2,7 @@ describe('object-hmac test suite', () => {
 
     const objectHmac = require('../object-hmac');
     const testKey = 'HmacSecret-0815';
+    const testKeyBroken = 'HmacSecret-4711';
     const testHmac = 'bb83e36f2c030af71803fd6a82b49ea638944bb6638351754a967f4f5638ac3b';
     const testHmacAttribute = '__hmac';
     const testHmacAttributeDifferent = '_signature';
@@ -71,6 +72,11 @@ describe('object-hmac test suite', () => {
 
     it('test a failed HMAC verification - manipulated HMAC', async (done) => {
         expect(objectHmac.verifyHmac(testObjects.testObjectManipulatedHmac, testKey)).toBeFalsy();
+        done();
+    });
+
+    it('test a failed HMAC verification - wrong key', async (done) => {
+        expect(objectHmac.verifyHmac(testObjects.testObjectWithHmac, testKeyBroken)).toBeFalsy();
         done();
     });
 
