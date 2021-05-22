@@ -6,7 +6,7 @@
 [![Build Status](https://img.shields.io/github/workflow/status/tsmx/object-hmac/git-ci-build)](https://img.shields.io/github/workflow/status/tsmx/object-hmac/git-ci-build)
 [![Coverage Status](https://coveralls.io/repos/github/tsmx/object-hmac/badge.svg?branch=master)](https://coveralls.io/github/tsmx/object-hmac?branch=master)
 
-> Create and verify HMAC for a JSON object.
+> Create and verify HMAC's for JSON objects.
 
 Easily create and verify [HMAC's](https://en.wikipedia.org/wiki/HMAC) for your JSON objects to ensure data integrity and authenticity. 
 
@@ -52,7 +52,6 @@ let verificationAfterChange = objectHmac.verifyHmac(person, key);
 const objectHmac = require('@tsmx/object-hmac');
 const key = 'HmacSecret-0815';
 
-
 let person = {
     name: 'Max',
     age: 32,
@@ -86,7 +85,7 @@ The key to calculate the objects HMAC.
 Type: `String`
 Default: `__hmac`
 
-The name of the attribute to store the HMAC value in `obj`. Make sure that the name of the attribute is not overkapping with other attributes already in use.
+The name of the attribute to store the HMAC value in `obj`. Make sure that the name of the attribute is not overlapping with other attributes already in use.
 
 ### verifyHmac(obj, key, hmacAttribute = '__hmac')
 
