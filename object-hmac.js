@@ -12,6 +12,7 @@ function calculateHmac(obj, key) {
 }
 
 function verifyHmac(obj, key, hmacAttribute = '__hmac') {
+    if (!obj) return false;
     const providedHmac = obj[hmacAttribute];
     let hmacObj = { ...obj };
     delete hmacObj[hmacAttribute];

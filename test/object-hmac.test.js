@@ -54,4 +54,9 @@ describe('object-hmac test suite', () => {
         done();
     });
 
+    it('test a failed HMAC verification - obj is null', async (done) => {
+        expect(objectHmac.verifyHmac(null, testKey)).toBeFalsy();
+        done();
+    });
+
 });
