@@ -10,7 +10,7 @@
 
 Easily create and verify [keyed-hash message authentication codes (HMAC's)](https://en.wikipedia.org/wiki/HMAC) for your JSON objects to ensure data integrity and authenticity. 
 
-Users of a version prior to v1.1.0 please see the [important note](#note-for-users-of-versions-prior-to-1.1.0).
+Users of a version prior to v1.1.0 please see the [important note](#note-for-users-of-versions-prior-to-1\.1\.0).
 
 ## Usage
 
