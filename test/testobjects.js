@@ -18,7 +18,31 @@ module.exports.testObjectWithHmac =
         age: 32,
         hobbies: ['sports', 'travelling']
     },
-    __hmac: 'bb83e36f2c030af71803fd6a82b49ea638944bb6638351754a967f4f5638ac3b'
+    __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
+}
+
+module.exports.testObjectWithHmacChangedOrder =
+{
+    title: 'Test-Object',
+    subObject: {
+        name: 'Max',
+        age: 32,
+        hobbies: ['sports', 'travelling']
+    },
+    numbers: [1, 12, 123],
+    __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
+}
+
+module.exports.testObjectWithHmacChangedSubobjectOrder =
+{
+    title: 'Test-Object',
+    numbers: [1, 12, 123],
+    subObject: {
+        name: 'Max',
+        hobbies: ['sports', 'travelling'],
+        age: 32
+    },
+    __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
 }
 
 module.exports.testObjectWithHmacDifferentAttribute =
@@ -30,7 +54,7 @@ module.exports.testObjectWithHmacDifferentAttribute =
         age: 32,
         hobbies: ['sports', 'travelling']
     },
-    _signature: 'bb83e36f2c030af71803fd6a82b49ea638944bb6638351754a967f4f5638ac3b'
+    _signature: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
 }
 
 module.exports.testObjectChangedAttribute =
@@ -42,7 +66,7 @@ module.exports.testObjectChangedAttribute =
         age: 32,
         hobbies: ['sports', 'travelling']
     },
-    __hmac: 'bb83e36f2c030af71803fd6a82b49ea638944bb6638351754a967f4f5638ac3b'
+    __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
 }
 
 module.exports.testObjectAddedAttribute =
@@ -55,7 +79,7 @@ module.exports.testObjectAddedAttribute =
         age: 32,
         hobbies: ['sports', 'travelling']
     },
-    __hmac: 'bb83e36f2c030af71803fd6a82b49ea638944bb6638351754a967f4f5638ac3b'
+    __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
 }
 
 module.exports.testObjectDeletedAttribute =
@@ -66,17 +90,17 @@ module.exports.testObjectDeletedAttribute =
         age: 32,
         hobbies: ['sports', 'travelling']
     },
-    __hmac: 'bb83e36f2c030af71803fd6a82b49ea638944bb6638351754a967f4f5638ac3b'
+    __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
 }
 
 module.exports.testObjectManipulatedHmac =
 {
-    title: 'Test-ObjectX',
+    title: 'Test-Object',
     numbers: [1, 12, 123],
     subObject: {
         name: 'Max',
         age: 32,
         hobbies: ['sports', 'travelling']
     },
-    __hmac: 'bb83e36f2c030af71803fd6a82b49ea638944bb6638351754a967f4f5638aczz'
+    __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb1521xxx'
 }

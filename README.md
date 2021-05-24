@@ -8,7 +8,7 @@
 
 > Create and verify HMAC's for JSON objects.
 
-Easily create and verify [HMAC's](https://en.wikipedia.org/wiki/HMAC) for your JSON objects to ensure data integrity and authenticity. 
+Easily create and verify [keyed-hash message authentication codes (HMAC's)](https://en.wikipedia.org/wiki/HMAC) for your JSON objects to ensure data integrity and authenticity. 
 
 ## Usage
 

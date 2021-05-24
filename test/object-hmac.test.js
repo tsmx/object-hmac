@@ -3,7 +3,7 @@ describe('object-hmac test suite', () => {
     const objectHmac = require('../object-hmac');
     const testKey = 'HmacSecret-0815';
     const testKeyBroken = 'HmacSecret-4711';
-    const testHmac = 'bb83e36f2c030af71803fd6a82b49ea638944bb6638351754a967f4f5638ac3b';
+    const testHmac = 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7';
     const testHmacAttribute = '__hmac';
     const testHmacAttributeDifferent = '_signature';
     var testObjects = null;
@@ -11,6 +11,17 @@ describe('object-hmac test suite', () => {
     beforeEach(() => {
         jest.resetModules();
         testObjects = require('./testobjects');
+    });
+
+    it('tests a successful HMAC creation and verification - end-to-end', async (done) => {
+        let person = {
+            name: 'Max',
+            age: 32
+        }
+        objectHmac.createHmac(person, testKey);
+        expect(person[testHmacAttribute]).toBeDefined();
+        expect(objectHmac.verifyHmac(person, testKey)).toBeTruthy();
+        done();
     });
 
     it('tests a successful HMAC calculation', async (done) => {
@@ -37,6 +48,30 @@ describe('object-hmac test suite', () => {
 
     it('test a successful HMAC verification', async (done) => {
         expect(objectHmac.verifyHmac(testObjects.testObjectWithHmac, testKey)).toBeTruthy();
+        done();
+    });
+
+    it('test a successful HMAC verification - JSON with changed attribute order', async (done) => {
+        expect(objectHmac.verifyHmac(testObjects.testObjectWithHmacChangedOrder, testKey)).toBeTruthy();
+        done();
+    });
+
+    it('test a successful HMAC verification - JSON with changed attribute order in a subobject', async (done) => {
+        expect(objectHmac.verifyHmac(testObjects.testObjectWithHmacChangedSubobjectOrder, testKey)).toBeTruthy();
+        done();
+    });
+
+    it('test a successful HMAC verification - JSON loaded from a file via require', async (done) => {
+        let testObj = require('./testobject');
+        expect(objectHmac.verifyHmac(testObj, testKey)).toBeTruthy();
+        done();
+    });
+
+    it('test a successful HMAC verification - JSON loaded from a file via fs', async (done) => {
+        let fs = require('fs');
+        let path = require('path');
+        let testObj = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'testobject.json'), 'utf8'));
+        expect(objectHmac.verifyHmac(testObj, testKey)).toBeTruthy();
         done();
     });
 

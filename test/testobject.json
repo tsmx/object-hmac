@@ -1,0 +1,10 @@
+{
+    "title": "Test-Object",
+    "numbers": [1, 12, 123],
+    "subObject": {
+        "name": "Max",
+        "age": 32,
+        "hobbies": ["sports", "travelling"]
+    },
+    "__hmac": "d5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7"
+}

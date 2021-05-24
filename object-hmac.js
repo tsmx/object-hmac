@@ -1,4 +1,17 @@
 const crypto = require('crypto');
+const jt = require('@tsmx/json-traverse');
+
+function createOrderedObjectString(obj) {
+    let attributes = [];
+    const callbacks = {
+        processValue: (key, value, _level, path, _isObjectRoot, _isArrayElement, _cbSetValue) => {
+            attributes.push((path.length > 0 ? (path.join('.') + '.') : '') + key + '=' + value);
+        }
+    };
+    jt.traverse(obj, callbacks);
+    attributes.sort();
+    return attributes.join('|');
+}
 
 function createHmac(obj, key, hmacAttribute = '__hmac') {
     const hmac = calculateHmac(obj, key);
@@ -7,7 +20,7 @@ function createHmac(obj, key, hmacAttribute = '__hmac') {
 
 function calculateHmac(obj, key) {
     let hmac = crypto.createHmac('sha256', key);
-    hmac.update(JSON.stringify(obj));
+    hmac.update(createOrderedObjectString(obj));
     return hmac.digest('hex');
 }
 
