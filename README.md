@@ -100,7 +100,7 @@ The verification would fail and return `false`, if...
 - the HMAC of `obj` was manipulated
 - `key` is deviating from the one the HMAC was created with
 
-The verification would not fail, just because the JSON's attributes order has changed. For more details see [calculateHmac](#calculateHmac(obj\,-key)).
+The verification would not fail, just because the JSON's attributes order has changed. For more details see [calculateHmac](#calculateHmacobj-key).
 
 #### obj
 
