@@ -95,6 +95,11 @@ describe('object-hmac test suite', () => {
         done();
     });
 
+    it('test a failed HMAC verification - changed array order', async (done) => {
+        expect(objectHmac.verifyHmac(testObjects.testObjectWithHmacChangedArrayOrder, testKey)).toBeFalsy();
+        done();
+    });
+
     it('test a failed HMAC verification - added object attribute', async (done) => {
         expect(objectHmac.verifyHmac(testObjects.testObjectAddedAttribute, testKey)).toBeFalsy();
         done();

@@ -33,6 +33,18 @@ module.exports.testObjectWithHmacChangedOrder =
     __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
 }
 
+module.exports.testObjectWithHmacChangedArrayOrder =
+{
+    title: 'Test-Object',
+    numbers: [123, 12, 1],
+    subObject: {
+        name: 'Max',
+        age: 32,
+        hobbies: ['sports', 'travelling']
+    },
+    __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
+}
+
 module.exports.testObjectWithHmacChangedSubobjectOrder =
 {
     title: 'Test-Object',
