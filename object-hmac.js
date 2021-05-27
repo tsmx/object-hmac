@@ -1,6 +1,10 @@
 const crypto = require('crypto');
 const jt = require('@tsmx/json-traverse');
 
+const defaultHmacAttribute = '__hmac';
+const hmacHash = 'sha256';
+const hmacEncoding = 'hex';
+
 function createOrderedObjectString(obj) {
     let attributes = [];
     const callbacks = {
@@ -13,18 +17,18 @@ function createOrderedObjectString(obj) {
     return attributes.join('|');
 }
 
-function createHmac(obj, key, hmacAttribute = '__hmac') {
+function createHmac(obj, key, hmacAttribute = defaultHmacAttribute) {
     const hmac = calculateHmac(obj, key);
     obj[hmacAttribute] = hmac;
 }
 
 function calculateHmac(obj, key) {
-    let hmac = crypto.createHmac('sha256', key);
+    let hmac = crypto.createHmac(hmacHash, key);
     hmac.update(createOrderedObjectString(obj));
-    return hmac.digest('hex');
+    return hmac.digest(hmacEncoding);
 }
 
-function verifyHmac(obj, key, hmacAttribute = '__hmac') {
+function verifyHmac(obj, key, hmacAttribute = defaultHmacAttribute) {
     if (!obj) return false;
     const providedHmac = obj[hmacAttribute];
     let hmacObj = { ...obj };

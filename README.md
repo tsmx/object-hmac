@@ -28,13 +28,23 @@ let person = {
 
 oh.createHmac(person, key);
 
-// person = {"name":"Max","age":32,"hobbies":["sports","travelling"],"__hmac":"37c2e448b6f4a72c9d8abc9a1ab6cada602c3785148caeeed5498ed065ddc69f"}
+// person = {
+//   name: 'Max',
+//   age: 32,
+//   hobbies: ['sports','travelling'],
+//   __hmac:'37c2e448b6f4a72c9d8abc9a1ab6cada602c3785148caeeed5498ed065ddc69f'
+// }
 ```
 
 ### Verify HMAC for a JSON object
 
 ```js
-// person = {"name":"Max","age":32,"hobbies":["sports","travelling"],"__hmac":"37c2e448b6f4a72c9d8abc9a1ab6cada602c3785148caeeed5498ed065ddc69f"}
+// person = {
+//   name: 'Max',
+//   age: 32,
+//   hobbies: ['sports','travelling'],
+//   __hmac:'37c2e448b6f4a72c9d8abc9a1ab6cada602c3785148caeeed5498ed065ddc69f'
+// }
 
 const oh = require('@tsmx/object-hmac');
 const key = 'HmacSecret-0815';
