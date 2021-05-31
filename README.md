@@ -8,7 +8,9 @@
 
 > Create and verify HMAC's for JSON objects.
 
-Easily create and verify [keyed-hash message authentication codes (HMAC's)](https://en.wikipedia.org/wiki/HMAC) for your JSON objects to ensure data integrity and authenticity. 
+Easily create and verify [keyed-hash message authentication codes (HMAC's)](https://en.wikipedia.org/wiki/HMAC) for your JSON objects to ensure data integrity and authenticity.
+
+The generated HMAC is independent of the JSON's attribute order and therefore stable for content-identical objects. See [calculateHmac](#calculatehmacobj-key).
 
 Users of an older version prior to v1.1.0 please see the [important note](#note-for-users-of-older-versions-prior-to-v110).
 
@@ -76,7 +78,7 @@ let hmac = oh.calculateHmac(person, key);
 
 ## API
 
-### createHmac(obj, key, hmacAttribute = '__hmac')
+### createHmac(obj, key, hmacAttribute)
 
 Calculates the HMAC of `obj` and attaches it as value of attribute `obj[hmacAttribute]`.
 
@@ -99,7 +101,7 @@ Default: `__hmac`
 
 The name of the attribute to store the HMAC value in `obj`. Make sure that the name of the attribute is not overlapping with other attributes already in use.
 
-### verifyHmac(obj, key, hmacAttribute = '__hmac')
+### verifyHmac(obj, key, hmacAttribute)
 
 Verifies the HMAC attached to `obj`. Returns `true` if the validation was successful, otherwise false `false`.
 
@@ -158,6 +160,8 @@ let hmac2 = oh.calculateHmac(person2, key);
 
 /// (hmac === hmac2) is true
 ```
+
+Please not that this order-independency does not apply to array elements. Arrays containing the same values in another order are not content-identical for obvious reasons. So the HMAC's of `{ hobbies: ['sports', 'travelling'] }` and `{ hobbies: ['travelling', 'sports'] }` are different.
 
 #### obj
 
