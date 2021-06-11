@@ -1,6 +1,6 @@
 {
   "name": "@tsmx/object-hmac",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Create and verify HMAC's for JSON objects",
   "author": "tsmx <dev@tsmx.net>",
   "main": "object-hmac.js",
