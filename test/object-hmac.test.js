@@ -17,7 +17,7 @@ describe('object-hmac test suite', () => {
         let person = {
             name: 'Max',
             age: 32
-        }
+        };
         objectHmac.createHmac(person, testKey);
         expect(person[testHmacAttribute]).toBeDefined();
         expect(objectHmac.verifyHmac(person, testKey)).toBeTruthy();
