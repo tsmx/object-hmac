@@ -7,7 +7,7 @@ module.exports.testObject =
         age: 32,
         hobbies: ['sports', 'travelling']
     }
-}
+};
 
 module.exports.testObjectWithHmac =
 {
@@ -19,7 +19,7 @@ module.exports.testObjectWithHmac =
         hobbies: ['sports', 'travelling']
     },
     __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
-}
+};
 
 module.exports.testObjectWithHmacChangedOrder =
 {
@@ -31,7 +31,7 @@ module.exports.testObjectWithHmacChangedOrder =
     },
     numbers: [1, 12, 123],
     __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
-}
+};
 
 module.exports.testObjectWithHmacChangedArrayOrder =
 {
@@ -43,7 +43,7 @@ module.exports.testObjectWithHmacChangedArrayOrder =
         hobbies: ['sports', 'travelling']
     },
     __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
-}
+};
 
 module.exports.testObjectWithHmacChangedSubobjectOrder =
 {
@@ -55,7 +55,7 @@ module.exports.testObjectWithHmacChangedSubobjectOrder =
         age: 32
     },
     __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
-}
+};
 
 module.exports.testObjectWithHmacDifferentAttribute =
 {
@@ -67,7 +67,7 @@ module.exports.testObjectWithHmacDifferentAttribute =
         hobbies: ['sports', 'travelling']
     },
     _signature: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
-}
+};
 
 module.exports.testObjectChangedAttribute =
 {
@@ -79,7 +79,7 @@ module.exports.testObjectChangedAttribute =
         hobbies: ['sports', 'travelling']
     },
     __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
-}
+};
 
 module.exports.testObjectAddedAttribute =
 {
@@ -92,7 +92,7 @@ module.exports.testObjectAddedAttribute =
         hobbies: ['sports', 'travelling']
     },
     __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
-}
+};
 
 module.exports.testObjectDeletedAttribute =
 {
@@ -103,7 +103,7 @@ module.exports.testObjectDeletedAttribute =
         hobbies: ['sports', 'travelling']
     },
     __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb15215c7'
-}
+};
 
 module.exports.testObjectManipulatedHmac =
 {
@@ -115,4 +115,4 @@ module.exports.testObjectManipulatedHmac =
         hobbies: ['sports', 'travelling']
     },
     __hmac: 'd5d182ef5b153107defbe4f96583c03ec3bd154ba38ca7ac41d0975eb1521xxx'
-}
+};
